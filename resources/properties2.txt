@@ -1,0 +1,2 @@
+saving.images=true
+saving.images.interval.millis=15000

@@ -1,0 +1,3 @@
+saving.images=true
+saving.images.interval.millis=15000
+saving.images.folder=/storage/emulated/0/Android/data/me.dm7.barcodescanner.zxing.sample/files/Pictures/camera-preview-frames/aaaa

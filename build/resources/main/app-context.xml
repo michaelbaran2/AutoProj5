@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- enable scanning from properties file -->
+     <context:property-placeholder location="run.properties" />
+     <context:component-scan base-package="base"/>
+
+    <bean id="runProperties" class="base.RunProperties">
+        <constructor-arg name="url" value="${server.url:http://localhost:4723}"/>
+        <constructor-arg name="accessKey" value="${access.key:}"/>
+        <constructor-arg name="onCloud" value="${cloud:false}"/>
+        <constructor-arg name="deviceSNs" value="${devices:}"/>
+        <constructor-arg name="seekPhones" value="${seek.phones:true}"/>
+        <constructor-arg name="seekTablets" value="${seek.tablets:true}"/>
+        <constructor-arg name="seekTvs" value="${seek.tvs:false}"/>
+        <constructor-arg name="seekChromebooks" value="${seek.chromebooks:false}"/>
+        <constructor-arg name="measureTiming" value="${measure.timing:false}"/>
+        <constructor-arg name="iterations" value="${iterations:1}"/>
+        <constructor-arg name="testClasses" value="${test.classes:}"/>
+    </bean>
+
+</beans>
