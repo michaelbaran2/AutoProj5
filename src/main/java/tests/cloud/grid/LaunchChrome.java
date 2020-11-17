@@ -8,11 +8,11 @@ import org.junit.Test;
 import tests.BaseTest;
 
 public class LaunchChrome extends BaseTest {
-    protected long TOTAL_TIME = 36000000; // = 10 hours
+    protected long TOTAL_TIME = 3600000; //1 Hour // 36000000; // = 10 hours
     protected Client client = null;
     protected GridClient grid = null;
-    protected String query = "@emulator='true'";
-//    protected String query = "@serialNumber='" + this.deviceSN + "'";
+//    protected String query = "@emulator='true'";
+    protected String query = "@serialNumber='" + this.deviceSN + "'";
 
     @Before
     public void setUp(){
@@ -21,6 +21,7 @@ public class LaunchChrome extends BaseTest {
         grid = new GridClient(this.accessKey, this.url);
         client = grid.lockDeviceForExecution("Launch Chrome test", query, 720, 60*60000*12);
         client.setReporter("xml", "", "Launch Chrome test");
+        client.setProperty("android.chrome.avoid.first.launch.experience", "true");
     }
 
     @Test
