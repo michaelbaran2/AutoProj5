@@ -1,4 +1,4 @@
-package tests.cloud.grid;
+package tests.local.sta;
 
 import com.experitest.client.Client;
 import com.experitest.client.GridClient;
@@ -7,17 +7,19 @@ import org.junit.Before;
 import org.junit.Test;
 import tests.BaseTest;
 
-public class InstallLikeADong extends BaseTest {
-    protected Client client = null;
-    protected GridClient grid = null;
+public class InstallLikeADong {
+protected Client client = null;
+    //    protected GridClient grid = null;
+    protected String host = "localhost";
+    protected int port = 8889;
+    protected String deviceName = "adb:samsung SM-G955F(1)";
+    protected static final String  UICATALOG_ABS_PATH = "C:\\Users\\michael.baran\\IdeaProjects\\autoProj5\\resources\\apk\\UICatalog.apk";
 
     @Before
     public void setUp(){
-        // In case your user is assign to a single project you can provide an empty string,
-        // otherwise please specify the project name
-        grid = new GridClient(this.accessKey, this.url);
-        client = grid.lockDeviceForExecution("Install", "@serialNumber='" + this.deviceSN + "'", 720, 60*60000*12);
-        client.setReporter("xml", "", "Install");
+//        grid = new GridClient(this.accessKey, this.url);
+        client = new Client(host, port, true);
+        client.setDevice(deviceName);
         client.uninstall("com.accuweather.android");
     }
 
@@ -25,7 +27,7 @@ public class InstallLikeADong extends BaseTest {
     @Test
     public void installFromPath(){
         client.setProperty("android.install.grant.permissions", "true");
-        client.install("resources\\apk\\com.accuweather.android_.activities.SplashActivity_ver_70501074.apk", false, false);
+        client.install("C:\\Users\\MichaelBaran\\IdeaProjects\\AutoProj5\\resources\\apk\\com.accuweather.android_.activities.SplashActivity_ver_70501074.apk", false, false);
     }
 
 
