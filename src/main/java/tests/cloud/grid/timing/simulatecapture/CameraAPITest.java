@@ -19,14 +19,15 @@ public class CameraAPITest extends MeasuringTest {
         grid = new GridClient(this.accessKey, this.url);
         client = grid.lockDeviceForExecution("Camera API test", "@serialNumber='" + this.deviceSN + "'", 10, 50000);
         client.setReporter("xml", "", "Camera API test");
+        client.uninstall("com.experitest.uicatalog");
     }
 
     @Test
     public void camera1Test(){
         client.setProperty("android.install.grant.permissions", "true");
         client.setProperty("android.instrumentation.camera", "true");
-//        client.install("resources\\apk\\UICatalog.apk", true, false);
-        client.install("cloud:com.experitest.uicatalog", true, false);
+        client.install("resources\\apk\\UICatalog.apk", true, false);
+//        client.install("cloud:com.experitest.uicatalog", true, false);
         client.launch("com.experitest.uicatalog/.MainActivity", true, true);
         client.swipeWhileNotFound("Down", 200, 100, "NATIVE", "xpath=//*[@text='Camera']", 0, 1000, 5, true);
         spamAllow(client); // This call is redundant when installing from path.

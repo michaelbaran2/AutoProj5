@@ -18,6 +18,7 @@ public class CameraAPI2Test extends MeasuringTest {
         grid = new GridClient(this.accessKey, this.url);
         client = grid.lockDeviceForExecution("Camera API2 test", "@serialNumber='" + this.deviceSN + "'", 10, 50000);
         client.setReporter("xml", "", "Camera API2 test");
+        client.uninstall("com.experitest.uicatalog");
     }
 
     @Test
