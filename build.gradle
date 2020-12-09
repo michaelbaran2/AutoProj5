@@ -10,7 +10,7 @@ sourceCompatibility = 1.8
 repositories {
     mavenCentral()
     maven {
-        url "https://mbremote.experitest.com/repo/"
+        url "https://qacloud.experitest.com/repo/"
     }
 }
 

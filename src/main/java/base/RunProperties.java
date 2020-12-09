@@ -31,9 +31,14 @@ public class RunProperties {
     int iterations;
     private boolean measureTiming; // For when timing measurements need to be taken
     private String[] testClasses;
+    private boolean retryAfterFail;
+    private int retries;
 
 
-    public RunProperties(String url, String accessKey, boolean onCloud, String[] deviceSNs, boolean seekPhones, boolean seekTablets, boolean seekTvs, boolean seekChromebooks, int iterations, boolean measureTiming, String[] testClasses) {
+    public RunProperties(String url, String accessKey, boolean onCloud,
+                         String[] deviceSNs, boolean seekPhones, boolean seekTablets,
+                         boolean seekTvs, boolean seekChromebooks, int iterations,
+                         boolean measureTiming, String[] testClasses, boolean retryAfterFail, int retries) {
         this.url = url;
         this.accessKey = accessKey;
         this.onCloud = onCloud;
@@ -51,6 +56,8 @@ public class RunProperties {
         }
         this.measureTiming = measureTiming;
         this.testClasses = testClasses;
+        this.retryAfterFail = retryAfterFail;
+        this.retries = retries;
     }
 
     public String getAccessKey() {
@@ -71,6 +78,14 @@ public class RunProperties {
 
     public String[] getTestClasses() {
         return this.testClasses;
+    }
+
+    public boolean shouldRetryAfterFail() {
+        return this.retryAfterFail;
+    }
+
+    public int getRetries() {
+        return this.retries;
     }
 
     @PostConstruct

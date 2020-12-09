@@ -20,8 +20,7 @@ public class TesterThread implements Runnable {
         for (String testClass: AutoProject.runProperties.getTestClasses()) {
             retries = 0;
             result = JUnitCore.runClasses(AutoProject.testMapper.getTest(testClass));
-
-            while (retries < 2 && !result.wasSuccessful()) {
+            while (AutoProject.runProperties.shouldRetryAfterFail() && retries < AutoProject.runProperties.getRetries() && !result.wasSuccessful()) {
                 AutoProject.LOGGER.info(this.parseFailures(result.getFailures(), retries));
                 retries++;
                 result = JUnitCore.runClasses(AutoProject.testMapper.getTest(testClass));

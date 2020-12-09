@@ -23,6 +23,8 @@
         <constructor-arg name="measureTiming" value="${measure.timing:false}"/>
         <constructor-arg name="iterations" value="${iterations:1}"/>
         <constructor-arg name="testClasses" value="${test.classes:}"/>
+        <constructor-arg name="retryAfterFail" value="${retry.after.fail:false}"/>
+        <constructor-arg name="retries" value="${retries:2}"/>
     </bean>
 
 </beans>

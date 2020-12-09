@@ -3,9 +3,12 @@ package tests;
 import base.AutoProject;
 import com.experitest.client.Client;
 
+import java.io.File;
+
 public class BaseTest {
     protected static final String UICATALOG_PATH = "resources\\apk\\UICatalog.apk";
-    protected static final String  UICATALOG_ABS_PATH = "C:\\Users\\michael.baran\\IdeaProjects\\autoProj5\\resources\\apk\\UICatalog.apk";
+    protected static final String  UICATALOG_ABS_PATH = "C:\\Users" + File.separator + System.getProperty("user.name") + File.separator + "IdeaProjects\\AutoProj5\\resources\\apk\\UICatalog.apk";
+    protected static final String  ERIBANK_ABS_PATH = "C:\\Users" + File.separator + System.getProperty("user.name") + File.separator + "IdeaProjects\\AutoProj5\\resources\\apk\\eribank.apk";
     protected static final String BOOP_PATH = "resources\\apk\\boop.apk";
     protected static final String ERIBANK_PATH = "resources\\apk\\eribank.apk";
     protected static final String APK_FOLDER_PATH = "resources\\apk\\";

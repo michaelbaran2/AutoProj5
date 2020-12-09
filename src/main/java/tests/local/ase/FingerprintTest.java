@@ -34,7 +34,8 @@ public class FingerprintTest extends BaseTest {
         client = new SeeTestClient(driver);
         client.setProperty("android.install.grant.permissions", "true");
         client.setProperty("android.instrument.fingerprint.secure", "true");
-        client.install("C:\\Users\\michael.baran\\IdeaProjects\\autoProj5\\resources\\apk\\UICatalog.apk", true, false);
+        client.install("C:\\Users\\michaelbaran\\IdeaProjects\\autoProj5\\resources\\apk\\UICatalog.apk", true, false);
+//        client.install("C:\\Users\\michael.baran\\IdeaProjects\\autoProj5\\resources\\apk\\UICatalog.apk", true, false);
 
     }
 

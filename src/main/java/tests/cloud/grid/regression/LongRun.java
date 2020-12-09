@@ -30,7 +30,7 @@ public class LongRun extends BaseTest {
     public void LongRun() throws FileNotFoundException {
         client.setProperty("location.service.gps", "true");
         long start = System.currentTimeMillis();
-//        while (System.currentTimeMillis() - start < TOTAL_TIME) {
+        while (System.currentTimeMillis() - start < TOTAL_TIME) {
         client.startLoggingDevice("longrunoutput" + File.separator + this.deviceSN + "-logcat.log");
         client.deviceAction("Unlock");
         String lat = "32.22222";
@@ -64,7 +64,7 @@ public class LongRun extends BaseTest {
         client.reboot(300000);
         client.stopLoggingDevice();
         client.deviceAction("home");
-//        }
+        }
     }
 
 
