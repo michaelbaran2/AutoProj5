@@ -43,9 +43,9 @@ public class QuickStart extends BaseTest {
     public void quickStartInstallFromPath(){
         client.setProperty("android.install.grant.permissions", "true");
 //        client.install(ERIBANK_ABS_PATH, false, false);
-        client.install("resources\\apk\\eribank.apk", false, false);
+        client.install("resources\\apk\\eribank.apk", true, false);
         spamInstall(client);
-        client.launch("com.experitest.ExperiBank/.LoginActivity", false, true);
+        client.launch("com.experitest.ExperiBank/.LoginActivity", true, true);
         client.elementSendText("NATIVE", "hint=Username", 0, "company");
         client.elementSendText("NATIVE", "hint=Password", 0, "company");
         client.click("NATIVE", "text=Login", 0, 1);

@@ -4,6 +4,7 @@ package tests.cloud.grid.regression;
 import com.experitest.client.Client;
 import com.experitest.client.GridClient;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import tests.BaseTest;
@@ -29,8 +30,12 @@ public class GeneralSanity extends BaseTest {
     public void generalSanityTest() throws FileNotFoundException {
         client.startLoggingDevice("longrunoutput" + File.separator + this.deviceSN + "-logcat.log");
         client.deviceAction("Unlock");
-        client.setLocation("36.296238", "-91.933594"); // USA
-        // TODO: assert with client.getLocation();
+        String lat = "36.296238";
+        String lon = "-91.933594";
+        client.setLocation(lat, lon); // USA
+        String[] loc = client.getLocation().split(",");
+        Assert.assertEquals("Coordinate doesn't match" , Double.parseDouble(lat), Double.parseDouble(loc[0]), 1.0E-6);
+        Assert.assertEquals("Coordinate doesn't match" ,Double.parseDouble(lon), Double.parseDouble(loc[1]), 1.0E-6);
         client.install("cloud:com.experitest.ExperiBank", true, false);
         try {
             client.launch("com.experitest.ExperiBank/.LoginActivity", true, true);
@@ -53,7 +58,7 @@ public class GeneralSanity extends BaseTest {
         client.deviceAction("Home");
         client.deviceAction("Recent Apps");
         client.deviceAction("Back");
-        client.reboot(300000);
+//        client.reboot(300000);
         client.deviceAction("unlock");
         client.stopLoggingDevice();
         System.out.println(client.getInstalledApplications());

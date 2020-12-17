@@ -27,9 +27,11 @@ public class FingerprintTest extends BaseTest {
     @Before
     public void setUp() throws MalformedURLException {
         dc.setCapability("testName", "ASE fingerprint authentication test");
-        dc.setCapability(MobileCapabilityType.UDID, this.deviceSN);
+//        dc.setCapability(MobileCapabilityType.UDID, this.deviceSN);
+        dc.setCapability(MobileCapabilityType.UDID, "09241FDD40079M");
         dc.setCapability(SeeTestCapabilityType.INSTRUMENT_APP, true);
-        driver = new AndroidDriver<>(new URL(this.url + "/wd/hub"), dc);
+//        driver = new AndroidDriver<>(new URL(this.url + "/wd/hub"), dc);
+        driver = new AndroidDriver<>(new URL("http://192.168.2.44:4723" + "/wd/hub"), dc);
         driver.setLogLevel(Level.INFO);
         client = new SeeTestClient(driver);
         client.setProperty("android.install.grant.permissions", "true");
