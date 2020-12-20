@@ -31,8 +31,8 @@ public class MoonactivePOC extends BaseTest {
     DesiredCapabilities dc = new DesiredCapabilities();
     HashMap<String, Integer> serialToPort = new HashMap<String, Integer>() {
         {
-//            put("99161FFAZ007RY", 13001); put("ce12160cf49a1a2104", 13002);
-            put("668bbfe5", 13001); put("031603c437ba1901", 13002);
+            put("99161FFAZ007RY", 13001); put("ce12160cf49a1a2104", 13002);
+//            put("668bbfe5", 13001); put("031603c437ba1901", 13002);
         }
     };
 
