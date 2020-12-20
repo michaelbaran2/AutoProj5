@@ -21,7 +21,7 @@ import java.util.HashMap;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-//public class MoonactivePOC {
+
 public class MoonactivePOC extends BaseTest {
     protected long TOTAL_TIME = 60*1000*60*7;
     protected AndroidDriver<AndroidElement> driver = null;
@@ -44,7 +44,7 @@ public class MoonactivePOC extends BaseTest {
         dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.echo_app");
         dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".MainActivity");
         driver = new AndroidDriver<>(new URL(this.url + "/wd/hub"), dc);
-//        driver = new AndroidDriver<>(new URL("http://localhost:4723/wd/hub"), dc);
+
     }
 
     @Test
@@ -59,12 +59,12 @@ public class MoonactivePOC extends BaseTest {
                 final BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 response = reader.readLine();
                 assertEquals(expectedResponse, response);
-                System.out.println(expectedResponse + ", " + response);
+                System.out.println(this.deviceSN + ": " + expectedResponse + ", " + response);
             } catch (Exception e) {
                 e.printStackTrace();
 //                System.out.println(MoonactivePOC.class.getName() + ": Report URL for device 09241FDD40079M: "+ driver.getCapabilities().getCapability("reportUrl"));
                 driver.quit();
-                fail("Connection error, probably");
+                fail("Connection error. Probably..");
             }
         } while (System.currentTimeMillis() - start < TOTAL_TIME);
     }

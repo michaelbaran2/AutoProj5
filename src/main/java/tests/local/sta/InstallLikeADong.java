@@ -27,7 +27,7 @@ protected Client client = null;
     @Test
     public void installFromPath(){
         client.setProperty("android.install.grant.permissions", "true");
-        client.install("C:\\Users\\MichaelBaran\\IdeaProjects\\AutoProj5\\resources\\apk\\com.accuweather.android_.activities.SplashActivity_ver_70501074.apk", false, false);
+        client.install("C:\\Users\\Michael.Baran\\IdeaProjects\\AutoProj5\\resources\\apk\\com.accuweather.android_.activities.SplashActivity_ver_70501074.apk", false, false);
     }
 
 
