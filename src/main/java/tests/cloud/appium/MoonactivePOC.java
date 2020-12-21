@@ -16,7 +16,6 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.Socket;
 import java.net.URL;
-import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.HashMap;
@@ -26,13 +25,13 @@ import static org.junit.Assert.fail;
 
 
 public class MoonactivePOC extends BaseTest {
-    protected long TOTAL_TIME = 60*1000*60*7;
+    protected long TOTAL_TIME = 60*1000*60;
     protected AndroidDriver<AndroidElement> driver = null;
     DesiredCapabilities dc = new DesiredCapabilities();
     HashMap<String, Integer> serialToPort = new HashMap<String, Integer>() {
         {
             put("99161FFAZ007RY", 13001); put("ce12160cf49a1a2104", 13002);
-//            put("668bbfe5", 13001); put("031603c437ba1901", 13002);
+//            put("	c94e4843", 13001); put("52004956b460b489", 13002);
         }
     };
 
