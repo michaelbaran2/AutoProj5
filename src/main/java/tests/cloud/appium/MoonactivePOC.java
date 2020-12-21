@@ -1,5 +1,6 @@
 package tests.cloud.appium;
 
+import base.AutoProject;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
@@ -25,13 +26,13 @@ import static org.junit.Assert.fail;
 
 
 public class MoonactivePOC extends BaseTest {
-    protected long TOTAL_TIME = 60*1000*60;
+    protected long TOTAL_TIME = 60*1000*10;
     protected AndroidDriver<AndroidElement> driver = null;
     DesiredCapabilities dc = new DesiredCapabilities();
     HashMap<String, Integer> serialToPort = new HashMap<String, Integer>() {
         {
-            put("99161FFAZ007RY", 13001); put("ce12160cf49a1a2104", 13002);
-//            put("	c94e4843", 13001); put("52004956b460b489", 13002);
+//            put("99161FFAZ007RY", 13001); put("ce12160cf49a1a2104", 13002);
+            put("17d09ba77d24", 13001); put("ce011821781268020c", 13002); // ce011821781268020c,17d09ba77d24,17d09ba77d24
         }
     };
 
@@ -60,13 +61,18 @@ public class MoonactivePOC extends BaseTest {
                 response = reader.readLine();
                 int retries = 0;
                 while (response == null && retries < 2) {
+                    String message = new Date() + ": " + this.deviceSN + ": Couldn't get a response. Retrying.. retries = " + retries;
+                    AutoProject.LOGGER.info(message);
+                    System.out.println(message);
                     socket.getOutputStream().write((expectedResponse + "\n").getBytes(StandardCharsets.UTF_8));
                     response = reader.readLine();
                     retries++;
                     Thread.sleep(100);
                 }
                 assertEquals(expectedResponse, response);
-                System.out.println(new Date() + ": " + this.deviceSN + ": " + expectedResponse + ", " + response);
+                String message = new Date() + ": " + this.deviceSN + ": " + expectedResponse + ", " + response;
+                AutoProject.LOGGER.info(message);
+                System.out.println(message);
                 Thread.sleep(100);
             } catch (Exception e) {
                 e.printStackTrace();

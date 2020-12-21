@@ -36,10 +36,8 @@ public class QuickStart extends BaseTest {
     @Test
     public void quickStartAndroidNativeDemo() {
         driver.rotate(ScreenOrientation.PORTRAIT);
-//        seetest.startPerformanceTransactionForApplication("com.experitest.ExperiBank", "4G-average");
         driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
         driver.hideKeyboard();
-//        seetest.sleep(5000);
         driver.findElement(By.xpath("//*[@id='passwordTextField']")).sendKeys("company");
         driver.findElement(By.xpath("//*[@id='loginButton']")).click();
         driver.findElement(By.xpath("//*[@id='makePaymentButton']")).click();
@@ -50,7 +48,6 @@ public class QuickStart extends BaseTest {
         driver.findElement(By.xpath("//*[@text='Switzerland']")).click();
         driver.findElement(By.xpath("//*[@id='sendPaymentButton']")).click();
         driver.findElement(By.xpath("//*[@text='Yes']")).click();
-        System.out.println(seetest.endPerformanceTransaction("Login"));
     }
 
     @After

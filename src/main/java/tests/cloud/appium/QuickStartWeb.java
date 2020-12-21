@@ -35,8 +35,9 @@ public class QuickStartWeb extends BaseTest {
         driver.get("https://www.google.com");
         new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.name("q")));
         WebElement searchBar = driver.findElement(By.name("q"));
-        searchBar.sendKeys("Experitest");
-        driver.findElement(By.xpath("//*[@css='BUTTON.Tg7LZd']")).click();
+        searchBar.sendKeys("Experitest"); //
+        //driver.findElement(By.xpath("//*[@text='Main menu']")).click();
+        //driver.findElement(By.xpath("//*[@css='BUTTON.Tg7LZd']")).click();
     }
 
     @After
