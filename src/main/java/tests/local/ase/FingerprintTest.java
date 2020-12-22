@@ -11,14 +11,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import tests.BaseTest;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Level;
 
 
-public class FingerprintTest extends BaseTest {
+public class FingerprintTest {
     protected AndroidDriver<AndroidElement> driver = null;
     protected SeeTestClient client;
     protected DesiredCapabilities dc = new DesiredCapabilities();
@@ -31,7 +30,7 @@ public class FingerprintTest extends BaseTest {
         dc.setCapability(MobileCapabilityType.UDID, "09241FDD40079M");
         dc.setCapability(SeeTestCapabilityType.INSTRUMENT_APP, true);
 //        driver = new AndroidDriver<>(new URL(this.url + "/wd/hub"), dc);
-        driver = new AndroidDriver<>(new URL("http://192.168.2.44:4723" + "/wd/hub"), dc);
+        driver = new AndroidDriver<>(new URL("http://localhost:4723" + "/wd/hub"), dc);
         driver.setLogLevel(Level.INFO);
         client = new SeeTestClient(driver);
         client.setProperty("android.install.grant.permissions", "true");

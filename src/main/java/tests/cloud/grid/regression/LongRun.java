@@ -61,7 +61,7 @@ public class LongRun extends BaseTest {
         client.deviceAction("Home");
         client.deviceAction("Recent Apps");
         client.deviceAction("Back");
-        client.reboot(300000);
+//        client.reboot(300000);
         client.stopLoggingDevice();
         client.deviceAction("home");
         }
