@@ -39,7 +39,8 @@ public class InstallInstrumentedTest extends BaseTest {
 
     @Test
     public void installFromCloud() {
-        String xpath = "(//*[@id='listView']/*[@id='text1'])[%d]";
+        String xpath = "(//*[@id='listView']/*[@id='text1'])[%d]"; // instrmented - //*[@text='Capture']
+                                                                    // non-instrumented - //*[@text='CAPTURE']
         driver.rotate(ScreenOrientation.PORTRAIT);
         if(!driver.findElement(By.xpath("//*[@text='Camera']")).isDisplayed()) {
             int i = 3;
@@ -55,6 +56,9 @@ public class InstallInstrumentedTest extends BaseTest {
         }
         driver.findElement(By.xpath("//*[@text='Camera']")).click();
         Assert.assertTrue(driver.findElement(By.xpath("//*[@text='Camera api1']")).isDisplayed());
+        driver.findElement(By.xpath("//*[@text='Camera api1']")).click();
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@text='Capture']")).isDisplayed());
+
     }
 
 

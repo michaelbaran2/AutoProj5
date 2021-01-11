@@ -30,7 +30,7 @@ public class CameraAPITest extends MeasuringTest {
 //        client.install("cloud:com.experitest.uicatalog", true, false);
         client.launch("com.experitest.uicatalog/.MainActivity", true, true);
         client.swipeWhileNotFound("Down", 200, 100, "NATIVE", "xpath=//*[@text='Camera']", 0, 1000, 5, true);
-        spamAllow(client); // This call is redundant when installing from path.
+//        spamAllow(client); // This call is redundant when installing from path.
         client.click("NATIVE", "xpath=//*[@text='Camera api1']", 0, 1);
         client.sleep(10000);
         startTimer();

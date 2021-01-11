@@ -19,11 +19,11 @@ import java.net.URL;
 public class SimpleInstall extends BaseTest {
     protected AndroidDriver<AndroidElement> driver = null;
     DesiredCapabilities dc = new DesiredCapabilities();
-    SeeTestClient seetest;
+    SeeTestClient seetest; // com.moonactive.coinmaster/com.moon.coinmaster.android.GameActivity
 
     @Before
     public void setUp() throws MalformedURLException {
-        dc.setCapability("testName", "Appium Quick Start Test");
+        dc.setCapability("testName", "Simple Install");
         dc.setCapability("accessKey", this.accessKey);
         dc.setCapability("deviceQuery", "@serialNumber='" + this.deviceSN + "'");
         dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank/.LoginActivity");

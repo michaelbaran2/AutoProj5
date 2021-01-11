@@ -8,7 +8,7 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- enable scanning from properties file -->
-     <context:property-placeholder location="run.properties" />
+     <context:property-placeholder location="run.properties"/>
      <context:component-scan base-package="base"/>
 
     <bean id="runProperties" class="base.RunProperties">
